@@ -1,0 +1,37 @@
+.content {
+    position: relative;
+    &_items {
+        display: flex;
+    }
+    &_item {
+        width: 100px;
+        height: 50px;
+        margin-right: 10px;
+        background-color: #fff;
+    }
+    &_add {
+        cursor: pointer;
+        width: 250px;
+        height: 70px;
+        margin-left: 30px;
+        margin-top: 30px;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 22px;
+        background-color: rgba(109, 96, 96, 0.603);
+        span {
+            margin-left: 15px;
+            display: block;
+            align-items: center;
+        }
+        &:hover {
+            background-color: rgba(231, 221, 221, 0.822);
+            color: #000;
+        }
+    }
+}
+
