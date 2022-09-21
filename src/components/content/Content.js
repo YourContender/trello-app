@@ -3,6 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import ModalWindow from '../modal/ModalWindow';
 import './Content.scss';
+import Desk from './desks/Desk';
 
 const Content = () => {
     const [modal, setModal] = useState(false);
@@ -14,17 +15,7 @@ const Content = () => {
 
     return (
         <div className="content_container">
-            <div className="content_items">
-                {
-                    desk.map(item => {
-                        return (
-                            <div className="content_item">
-                                {item}
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            <Desk desk={desk}/>
 
             <div 
                 className="content_add"
