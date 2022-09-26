@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import './DeskConstructor.scss';
 
-function DeskConstructor ({ data, setData }) {
+function DeskConstructor ({ data, setData, setDisplayConstructor }) {
     const [quantity, setQuantity] = useState(0);
     const [titles, setTitles] = useState('');
 
     const postData = (a, b) => {
-        return setData([...data, {'quantity: ': a, 'titles': b}])
+        setDisplayConstructor(true);
+        let title = b.split(', ');
+        
+        let array = new Array(+a).fill('').map((_, i) => ({title: title[i]}));
+        console.log('array: ', array);
+
+        return setData([...data, ...array])
     }
 
     return (
