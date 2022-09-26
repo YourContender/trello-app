@@ -1,0 +1,47 @@
+.promo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 450px;
+    border-radius: 5px;
+    background-color: rgba(49, 47, 47, 0.733);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    button {
+        width: 150px;
+        height: 50px;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-family: serif;
+        font-weight: 400;
+        border-radius: 5px;
+        border: 2px solid #c7c1c1;
+        background: none;
+        color: #c7c1c1;
+        letter-spacing: 2px;
+        transition: .2s ease;
+        &:hover {
+            border: 1px solid rgb(35, 35, 46);
+            color: rgb(18, 18, 209);
+            background-color: rgb(108, 108, 175);
+            font-weight: 500;
+        }
+    }
+    &_title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        font-family: serif;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 1px;
+        p {
+            text-transform: lowercase;
+            font-size: 24px;
+        }
+    }
+}
