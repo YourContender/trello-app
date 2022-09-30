@@ -12,7 +12,7 @@ function DeskConstructor ({ data, setData, setDisplayConstructor }) {
         let array = new Array(+a).fill('').map((_, i) => ({title: title[i]}));
         console.log('array: ', array);
 
-        return setData([...data, ...array])
+        return setData([...data, array])
     }
 
     return (
