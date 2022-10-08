@@ -3,8 +3,14 @@ import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import './Card.scss';
 import { useState } from 'react';
 
-const Card = ({item, func}) => {
-    console.log('item: ', item);
+const Card = ({item, addNewTask}) => {
+    const [inputText, setInputText] = useState('');
+
+    const sendingInput = (id) => {
+        setInputText('');
+
+        addNewTask(id, [inputText]);
+    }
 
     return ( 
         <div className='card_container'>
@@ -13,7 +19,7 @@ const Card = ({item, func}) => {
                     <div className="card_header">
                         <span>title {item.title}</span>
                         <a href="#">
-                            <FontAwesomeIcon icon={faEllipsis   } />
+                            <FontAwesomeIcon icon={faEllipsis} />
                         </a>
                     </div>
                     
@@ -30,8 +36,13 @@ const Card = ({item, func}) => {
                     </div>
                     
                     <div className="card_footer">
-                        <input type="text" placeholder="enter text"/>
-                        <button onClick={() => func(item.id, ['test1'])}>
+                        <input 
+                            type="text" 
+                            placeholder="enter text" 
+                            value={inputText}
+                            onChange={(e) => setInputText(e.target.value)}
+                        />
+                        <button onClick={() => sendingInput(item.id)}>
                             add 
                         </button>
                     </div>

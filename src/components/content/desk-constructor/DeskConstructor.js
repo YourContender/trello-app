@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import './DeskConstructor.scss';
 
-function DeskConstructor ({ data, setData, setDisplayConstructor }) {
+function DeskConstructor ({ setData, setDisplayConstructor }) {
     const [quantity, setQuantity] = useState(0);
-    const [titles, setTitles] = useState('');
+    const [title, setTitles] = useState('');
 
-    const postData = (a, b) => {
+    const postData = (a) => {
         setDisplayConstructor(true);
-        let title = b.split(', ');
+        let current = title.split(', ');
         
-        let array = new Array(+a).fill('').map((_, i) => ({title: title[i]}));
-        console.log('array: ', array);
+        let array = new Array(+a).fill('').map((_, i) => ({
+            title: current[i],
+            task: [],
+            id: current[i]
+        }));
 
-        return setData([...data, array])
+        return setData(array);
     }
 
     return (
@@ -31,7 +34,7 @@ function DeskConstructor ({ data, setData, setDisplayConstructor }) {
                 />
 
                 <button
-                    onClick={() => postData(quantity, titles)}
+                    onClick={() => postData(quantity)}
                 >
                     POST
                 </button>

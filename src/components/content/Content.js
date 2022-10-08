@@ -3,7 +3,6 @@ import Promo from './promo/Promo';
 import DeskConstructor from './desk-constructor/DeskConstructor';
 import Card from './card/Card';
 import './Content.scss';
-import { useEffect } from 'react';
 
 function Content () {
     const [start, setStart] = useState(false);
@@ -26,8 +25,7 @@ function Content () {
         },
     ]);
 
-    const hello = (id, text) => {
-        console.log('attribute: ', text);
+    const addNewTask = (id, text) => {
         let currentElem = data.filter(item => {
             if (item.id === id) {
                 item.task = [...item.task, ...text];
@@ -36,15 +34,9 @@ function Content () {
         })
 
         return setData(currentElem);
-        // return console.log('test');
     }
 
-    console.log('1:', typeof hello);
-
-    useEffect(() => {
-
-    }, [data])
-
+    console.log('data: ', data)
     return (
         <div className="content_container">
             {/* {
@@ -61,12 +53,11 @@ function Content () {
             } */}
 
             {
-                // data && 
-                    data.map(item => {
-                        return (
-                            <Card item={item} func={hello}/>
-                        )
-                    })
+                data.map(item => {
+                    return (
+                        <Card item={item} addNewTask={addNewTask}/>
+                    )
+                })
             }
         </div>
     )
